@@ -1,0 +1,47 @@
+﻿@model ATM.Models.Classes.Alici
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAlici.cshtml";
+}
+
+<h2>Details</h2>
+
+<h2>Details</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<div style="margin-left:8cm;width:20cm;height:20cm">
+    @using (Html.BeginForm("Update", "Alici", FormMethod.Post))
+    {
+        @Html.LabelFor(x => x.ID)
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("İsim Soyisim")
+        @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Telefon Numarası")
+        @Html.TextBoxFor(x => x.telephoneNo, new { @class = "form-control" })
+        <br />
+        @Html.Label("İstediği Bölgeler")
+        @Html.TextBoxFor(x => x.locations, new { @class = "form-control" })
+        <br />
+        @Html.Label("Minimum Fiyat")
+        @Html.TextBoxFor(x => x.priceMin, new { @class = "form-control" })
+        <br />
+        @Html.Label("Max Fiyat")
+        @Html.TextBoxFor(x => x.priceMax, new { @class = "form-control" })
+        <br />
+        @Html.Label("Not")
+        @Html.TextBoxFor(x => x.not, new { @class = "form-control" })
+        <br />
+        @Html.Label("Aktif")
+      <a> </a><a></a>  @Html.CheckBoxFor(x => x.isActive, new { @class = "checkbox" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    }
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

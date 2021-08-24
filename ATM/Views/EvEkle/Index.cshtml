@@ -1,0 +1,56 @@
+﻿@model ATM.Models.Classes.Ev
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content" style="position:relative;left:300px;top:100px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title">Kiralık - Satılık Ev Ekle</h4>
+                        <p class="card-category">portföye ev ekle</p>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("EvEkle", "EvEkle", FormMethod.Post))
+                        {
+                            @Html.Label("İsim Soyisim")
+                            @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Telefon Numarası")
+                            @Html.TextBoxFor(x => x.telephoneNo, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Adresi")
+                            @Html.TextBoxFor(x => x.address, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Fiyatı")
+                            @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Metre Kare")
+                            @Html.TextBoxFor(x => x.metrekare, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Oda Sayisi")
+                            @Html.TextBoxFor(x => x.odaSayisi, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Not")
+                            @Html.TextBoxFor(x => x.not, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Bina Kat Sayisi")
+                            @Html.TextBoxFor(x => x.binaKatSayisi, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Bulunduğu Kat")
+                            @Html.TextBoxFor(x => x.bulunduguKat, new { @class = "form-control" })
+                            <br />
+                            <button class="btn btn-success">Ev Ekle</button>
+                        }
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

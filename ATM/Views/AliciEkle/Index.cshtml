@@ -1,0 +1,49 @@
+﻿@model ATM.Models.Classes.Alici
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAlici.cshtml";
+}
+
+<div class="content" style="position:relative;left:300px;top:100px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-rose">
+                        <h4 class="card-title">Alıcı Ekle</h4>
+                        <p class="card-category">satın alma ve kiralama için alıcı profilleri ekle</p>
+                    </div>
+                    <div class="card-body">
+                        @using (Html.BeginForm("AliciEkle", "AliciEkle", FormMethod.Post))
+                        {
+
+                            @Html.Label("İsim Soyisim")
+                            @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Telefon Numarası")
+                            @Html.TextBoxFor(x => x.telephoneNo, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Hangi Bölgelerde")
+                            @Html.TextBoxFor(x => x.locations, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Minimum Fiyat")
+                            @Html.TextBoxFor(x => x.priceMin, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Maksimum Fiyat")
+                            @Html.TextBoxFor(x => x.priceMax, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Not")
+                            @Html.TextBoxFor(x => x.not, new { @class = "form-control" })
+                            <br />
+                            @Html.Label("Aktif")
+                            @Html.CheckBoxFor(x => x.isActive, new { @class = "checkbox" })
+                            <br />
+                            <button class="btn btn-rose">Alıcı Ekle</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
