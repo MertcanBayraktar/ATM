@@ -58,7 +58,9 @@ namespace ATM.Controllers
 		}
 		public ActionResult FileUpload(int id ,HttpPostedFileBase file)
 		{
-			string extension = System.IO.Path.GetExtension(file.FileName);
+			string extension = "";
+			if(file != null)
+				 extension = System.IO.Path.GetExtension(file.FileName);
 			if (file != null && !extension.Contains("pdf"))
 			{
 				string pic = System.IO.Path.GetFileName(file.FileName);

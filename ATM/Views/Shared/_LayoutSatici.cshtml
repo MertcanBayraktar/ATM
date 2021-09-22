@@ -56,12 +56,21 @@
                             </a>
                         </li>
                     }
-                    @if ((string)Session["Role"] == "kiraci" || (string)Session["Role"] == "admin")
+                    @if ((string)Session["Role"] == "kiraci")
                     {
                         <li class="nav-item ">
                             <a class="nav-link" href="./icons.html">
                                 <i class="material-icons">bubble_chart</i>
                                 <p>Kira Takip</p>
+                            </a>
+                        </li>
+                    }
+                    @if ((string)Session["Role"] == "admin")
+                    {
+                        <li class="nav-item ">
+                            <a class="nav-link" href="~/User/Index">
+                                <i class="material-icons">bubble_chart</i>
+                                <p>Kullanicilar</p>
                             </a>
                         </li>
                     }

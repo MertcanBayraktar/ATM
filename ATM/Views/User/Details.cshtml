@@ -1,0 +1,32 @@
+﻿@model ATM.Models.Classes.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutKullanici.cshtml";
+}
+<h2>Details</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+@using (Html.BeginForm("Update", "User", FormMethod.Post))
+{
+    <div style="margin-left:300px;position:relative;top:40px;width:500px;height:500px;">
+        @Html.LabelFor(x => x.ID)
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("İsim Soyisim")
+        @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kullanıcı Adı")
+        @Html.TextBoxFor(x => x.userName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Şifre")
+        @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
+        <br />
+        @Html.Label("Rolü")
+        @Html.TextBoxFor(x => x.role, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

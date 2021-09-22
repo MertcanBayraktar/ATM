@@ -177,9 +177,11 @@
     <Compile Include="Controllers\EvEkleController.cs" />
     <Compile Include="Controllers\EvlerController.cs" />
     <Compile Include="Controllers\KiraTakipController.cs" />
+    <Compile Include="Controllers\KullaniciEkleController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SaticiController.cs" />
     <Compile Include="Controllers\SaticiEkleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -479,6 +481,10 @@
     <Content Include="Views\KiraTakip\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutKira.cshtml" />
     <Content Include="Views\KiraTakip\Details.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutKullanici.cshtml" />
+    <Content Include="Views\KullaniciEkle\Index.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

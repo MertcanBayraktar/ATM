@@ -44,7 +44,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item active ">
+                        <li class="nav-item ">
                             <a class="nav-link" href="~/Alici/Index">
                                 <i class="material-icons">person</i>
                                 <p>Alıcılar</p>
@@ -60,7 +60,7 @@
                     @if ((string)Session["Role"] == "kiraci")
                     {
                         <li class="nav-item ">
-                            <a class="nav-link" href="./icons.html">
+                            <a class="nav-link" href="">
                                 <i class="material-icons">bubble_chart</i>
                                 <p>Kira Takip</p>
                             </a>
@@ -68,10 +68,10 @@
                     }
                     @if ((string)Session["Role"] == "admin")
                     {
-                        <li class="nav-item ">
+                        <li class="nav-item active ">
                             <a class="nav-link" href="~/User/Index">
                                 <i class="material-icons">bubble_chart</i>
-                                <p>Kullanicilar</p>
+                                <p>Kullanıcılar</p>
                             </a>
                         </li>
                     }
@@ -120,7 +120,6 @@
                         <script>
                             document.write(new Date().getFullYear())
                         </script>
-                    </div>
                     <!-- your footer here -->
                 </div>
             </footer>

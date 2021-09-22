@@ -16,52 +16,53 @@
 </head>
 @using (Html.BeginForm("Update", "Evler", FormMethod.Post))
 {
-<div style="margin-left:300px;position:relative;top:40px;width:500px;height:500px;">
-    @Html.LabelFor(x => x.ID)
-    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
-    <br />
-    @Html.Label("İsim Soyisim")
-    @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
-    <br />
-    @Html.Label("Telefon Numarası")
-    @Html.TextBoxFor(x => x.telephoneNo, new { @class = "form-control" })
-    <br />
-    @Html.Label("Adresi")
-    @Html.TextBoxFor(x => x.address, new { @class = "form-control" })
-    <br />
-    @Html.Label("Fiyatı")
-    @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
-    <br />
-    @Html.Label("Metre Kare")
-    @Html.TextBoxFor(x => x.metrekare, new { @class = "form-control" })
-    <br />
-    @Html.Label("Oda Sayisi")
-    @Html.TextBoxFor(x => x.odaSayisi, new { @class = "form-control" })
-    <br />
-    @Html.Label("Not")
-    @Html.TextBoxFor(x => x.not, new { @class = "form-control" })
-    <br />
-    @Html.Label("Bina Kat Sayisi")
-    @Html.TextBoxFor(x => x.binaKatSayisi, new { @class = "form-control" })
-    <br />
-    @Html.Label("Bulunduğu Kat")
-    @Html.TextBoxFor(x => x.bulunduguKat, new { @class = "form-control" })
-    <br />
-    <button class="btn btn-success">Güncelle</button>
-    <div>   
+    <div style="margin-left:300px;position:relative;top:40px;width:500px;height:500px;">
+        @Html.LabelFor(x => x.ID)
+        @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.Label("İsim Soyisim")
+        @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
+        <br />
+        @Html.Label("Telefon Numarası")
+        @Html.TextBoxFor(x => x.telephoneNo, new { @class = "form-control" })
+        <br />
+        @Html.Label("Adresi")
+        @Html.TextBoxFor(x => x.address, new { @class = "form-control" })
+        <br />
+        @Html.Label("Fiyatı")
+        @Html.TextBoxFor(x => x.price, new { @class = "form-control" })
+        <br />
+        @Html.Label("Metre Kare")
+        @Html.TextBoxFor(x => x.metrekare, new { @class = "form-control" })
+        <br />
+        @Html.Label("Oda Sayisi")
+        @Html.TextBoxFor(x => x.odaSayisi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Not")
+        @Html.TextBoxFor(x => x.not, new { @class = "form-control" })
+        <br />
+        @Html.Label("Bina Kat Sayisi")
+        @Html.TextBoxFor(x => x.binaKatSayisi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Bulunduğu Kat")
+        @Html.TextBoxFor(x => x.bulunduguKat, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+        <div>
+        </div>
+        @if (kontratlar == null)
+        {
+            <a>Kontrat Bulunamadı , alttaki seçenekten ekle</a>
+        }
+        @if (kontratlar != null)
+        {
+    <span class=" col-lg-2">@ViewBag.ev :</span>
+            <a href="@Url.Content(kontratlar.kontratPath)">Kontrakta bak</a><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text>
+            <a href="#" onclick="location.href='@Url.Action("DeleteContract","Evler",new { id = kontratlar.evId })'" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+
+        }
+
     </div>
-    @if (kontratlar == null)
-    {
-        <a>Kontrat Bulunamadı , alttaki seçenekten ekle</a>
-    }
-    @if (kontratlar != null)
-    {
-        <a href="@Url.Content(kontratlar.kontratPath)">Kontrakta bak</a><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text><text>&nbsp;</text>
-        <a href="#" onclick="location.href='@Url.Action("DeleteContract","Evler",new { id = kontratlar.evId })'" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
-
-    }
-
-</div>
 }
 <div style="position:relative;width:15cm;height:15cm;float:right;top:-10cm;right:2cm">
     <!--Carousel Wrapper-->
@@ -123,18 +124,18 @@
             <input type="submit" value="Yükle" class="btn btn-rose" />
         }
     </div>
-    <div class="container" style="position:relative;top:-20px;width:700px;height:700px;left:100px">
-        <div class="row row-cols-2">
-            @foreach (var item in resimler)
-            {
-                <div class="col" style="height:3cm;width:3cm">
-                    <img src="@Url.Content(item.imagePath)" alt="Image" style="width:100%;height:100%">
-                    @using (Html.BeginForm("DeletePhoto", "Evler", new { id = item.ID }, FormMethod.Post))
-                    {
-                        <button style="height:50px;width:50px;position:relative;top:-140px;right:-60px" class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
-                    }
-                </div>
-            }
-        </div>
-    </div>
 </p>
+<div class="container" style="position:relative;top:-20px;left:100px">
+    <div class="row row-cols-2">
+        @foreach (var item in resimler)
+        {
+            <div class="col" style="height:2cm;width:2cm">
+                <img src="@Url.Content(item.imagePath)" alt="Image" style="width:100%;height:100%">
+                @using (Html.BeginForm("DeletePhoto", "Evler", new { id = item.ID }, FormMethod.Post))
+                {
+                    <button style="height:30px;width:10px;position:relative;top:-100px;right:-30px" class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                }
+            </div>
+        }
+    </div>
+</div>
