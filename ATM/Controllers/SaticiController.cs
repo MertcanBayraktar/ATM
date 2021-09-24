@@ -18,5 +18,24 @@ namespace ATM.Controllers
         {
             return RedirectToAction("Index", "SaticiEkle");
         }
+        public ActionResult Details(int id = 0)
+        {
+            Satici satici = c.Saticilar.Find(id);
+            return View(satici);
+        }
+        [HttpPost]
+        public ActionResult Update(Satici satici)
+        {
+            var saticilar = c.Saticilar.Find(satici.ID);
+            saticilar.nameSurname = satici.nameSurname;
+            saticilar.priceMax = satici.priceMax;
+            saticilar.priceMin = satici.priceMin;
+            saticilar.adress = satici.adress;
+            saticilar.not = satici.not;
+            saticilar.telephoneNo = satici.telephoneNo;
+            saticilar.isActive = satici.isActive;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

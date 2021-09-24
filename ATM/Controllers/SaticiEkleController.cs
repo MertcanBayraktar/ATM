@@ -27,7 +27,7 @@ namespace ATM.Controllers
                 telephoneNo = satici.telephoneNo,
             }) ;
             c.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Satici");
         }
     }
 }

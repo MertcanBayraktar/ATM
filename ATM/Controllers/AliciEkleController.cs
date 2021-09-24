@@ -27,7 +27,7 @@ namespace ATM.Controllers
 				isActive = alici.isActive,
 			});
 			c.SaveChanges();
-			return RedirectToAction("Index");
+			return RedirectToAction("Index","Alici");
 		}
 	}
 }

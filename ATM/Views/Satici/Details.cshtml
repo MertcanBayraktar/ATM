@@ -1,0 +1,43 @@
+﻿@model ATM.Models.Classes.Satici
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutSatici.cshtml";
+}
+<h2>Details</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+@using (Html.BeginForm("Update", "Satici", FormMethod.Post))
+{
+<div style="margin-left:8cm;width:20cm;height:20cm">
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.Label("İsim Soyisim")
+    @Html.TextBoxFor(x => x.nameSurname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Telefon Numarası")
+    @Html.TextBoxFor(x => x.telephoneNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Minimum Ücret")
+    @Html.TextBoxFor(x => x.priceMin, new { @class = "form-control" })
+    <br />
+    @Html.Label("Maksimum Ücret")
+    @Html.TextBoxFor(x => x.priceMax, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adres")
+    @Html.TextBoxFor(x => x.adress, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adres")
+    @Html.TextBoxFor(x => x.not, new { @class = "form-control" })
+    <br />
+    @Html.Label("Aktif")
+    <a> </a><a></a>  @Html.CheckBoxFor(x => x.isActive, new { @class = "checkbox" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+    <div>
+    </div>
+</div>
+}

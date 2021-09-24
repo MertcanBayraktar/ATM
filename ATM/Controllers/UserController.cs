@@ -11,7 +11,9 @@ namespace ATM.Controllers
 {
     public class UserController : Controller
     {
+       
         Context c = new Context();
+        [Authorize]
         public ActionResult Index(string searching)
         {
             return View(c.Users.Where(x => x.nameSurname.Contains(searching) || x.password.Contains(searching) ||
